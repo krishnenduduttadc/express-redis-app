@@ -1,0 +1,24 @@
+docker-compose up --build
+docker-compose down
+docker-compose down -v #remove volumes too
+
+
+
+Why Compose Is Powerful
+Single config file for multi-container systems
+Custom networks created automatically
+Supports volumes, env files, health checks, scaling, etc.
+Great for local dev, CI, and even production with docker-compose -f docker-compose.prod.yml
+
+Push to dockerhub:
+docker login
+docker build -t express-redis-app .  #Build image
+docker images
+docker tag express-redis-app 5467842/express-redis-app:latest   #Tag the image
+docker push 5467842/express-redis-app:latest     #Push 
+
+
+Pull and run from anywhere:
+docker pull 5467842/express-redis-app:latest
+docker run -d -p 3000:3000 5467842/express-redis-app:latest
+
